@@ -1,5 +1,5 @@
 # Ohjelmistotekniikka 2019 
-
+Tähän repoon tulee ohjelmistotekniikan laskaritehtävät
 ## Viikko 1 tehtävät
 *Tässä on esimerkki kursivoidusta tekstistä.*
 **Tässä on esimerkki lihavoidusta tekstistä.**
