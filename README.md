@@ -9,6 +9,6 @@
 
 [Komentorivi](https://github.com/Melimet/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
-## Viikko2 tehtävät
+## Viikko 2 tehtävät
 404
 
