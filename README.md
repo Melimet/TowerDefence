@@ -1,5 +1,4 @@
 # Ohjelmistotekniikka 2019 
-MERGEBUGI
 
 ## Viikko 1 tehtävät
 *Tässä on esimerkki kursivoidusta tekstistä.*
