@@ -1,5 +1,6 @@
 # Ohjelmistotekniikka 2019 
 
+Tähän repoon tulee ohjelmistotekniikan viikkotehtävät.
 
 ## Viikko 1 tehtävät
 *Tässä on esimerkki kursivoidusta tekstistä.*
