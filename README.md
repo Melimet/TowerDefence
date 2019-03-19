@@ -1,5 +1,9 @@
-# Ohjelmistotekniikka 2019 
-Tähän repoon tulee ohjelmistotekniikan laskaritehtävät
+# Software Engineering 2019 
+This repo contains a project and some other stuff for University of Helsinki course on software engineering.
+
+## Tower Defence
+
+
 ## Viikkotehtävät
 ### Viikko 1
 *Tässä on esimerkki kursivoidusta tekstistä.*
