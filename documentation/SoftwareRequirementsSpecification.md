@@ -2,7 +2,7 @@
 
 ## Purpose of the app
 
-**Tower Defence** is a classic tower defence game. The point of the game is to prevent waves of attacking invaders from reaching the end of the maze. This is done by building towers along the way and trying to eliminate as many attacking invaders as possible. Building towers costs gold and gold is acquired via surviving waves and eliminating invaders. There are multiple kinds of towers and they excel at different things. There are multiple types of invaders. Choosing from a variety of maps/levels might become a possibility also.
+**Tower Defence** is a classic tower defence game. The point of the game is to prevent waves of attacking invaders from reaching the end of the maze. This is done by building towers along the way and trying to eliminate as many attacking invaders as possible. Building towers costs gold and gold is acquired via surviving waves and eliminating invaders. There are multiple kinds of towers and they excel at different things. There are multiple types of invaders. Choosing from a variety of maps/levels may become a possibility.
 
 ## First draft of UI
 
