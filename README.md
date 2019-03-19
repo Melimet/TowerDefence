@@ -6,7 +6,7 @@ Tower Defence is a classic tower defence game. The point of the game is to preve
 
 
 ## Viikkotehtävät
-**DISCLAIMER**:*The weekly exercises are in finnish since they aren't part of the software project*
+**DISCLAIMER**: *The weekly exercises are in finnish since they aren't a part of the software project.*
 ### Viikko 1
 *Tässä on esimerkki kursivoidusta tekstistä.*
 **Tässä on esimerkki lihavoidusta tekstistä.**
