@@ -31,10 +31,10 @@ The game is going to consist of atleast two different windows: one is for the co
 
 - All waves are different and become progressively harder as the game progresses
   - Different types of enemies have different values in:
-    -Hit points
-    -Bounties (Gold gained from eliminating it)
-    -Movement speed (Might get cut out if this proves to be too difficult to carry out)
-    -Models(Type 1 can be a red square and Type 2 could be a purple triangle)
+    ,Hit points
+    ,Bounties (Gold gained from eliminating it)
+    ,Movement speed (Might get cut out if this proves to be too difficult to carry out)
+    and Models(Type 1 can be a red square and Type 2 could be a purple triangle)
 
 ## Ideas for further development
 
