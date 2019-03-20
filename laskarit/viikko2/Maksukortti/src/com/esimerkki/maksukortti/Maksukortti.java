@@ -1,3 +1,5 @@
+package com.esimerkki.maksukortti;
+
 public class Maksukortti {
     private double arvo;
     private final double EDULLINEN = 2.5;
@@ -14,7 +16,7 @@ public class Maksukortti {
     }
 
     public void syoMaukkaasti() {
-        if (this.arvo > MAUKAS) {
+        if (this.arvo >= MAUKAS) {
             this.arvo -= MAUKAS;
         }
     }
