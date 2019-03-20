@@ -18,5 +18,5 @@ Tower Defence is a classic tower defence game. The point of the game is to preve
 [Komentorivi](https://github.com/Melimet/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
 ### Viikko 2
-404
+[Testikattavuus](https://raw.githubusercontent.com/Melimet/TowerDefence/master/laskarit/viikko2/testikattavuus.png)
 
