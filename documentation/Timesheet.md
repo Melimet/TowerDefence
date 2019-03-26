@@ -1,4 +1,4 @@
-# Bookkeeping of working hours
+# Timesheet
 
 | Date | Time (hours) | Subject |
 | :----:|:-----| :-----|
