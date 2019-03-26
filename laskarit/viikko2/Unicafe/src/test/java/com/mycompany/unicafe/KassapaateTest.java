@@ -86,11 +86,13 @@ public class KassapaateTest {
     @Test
     public void kortilleVoiLadataRahaa(){
         kassa.lataaRahaaKortille(kortti,100);
+        assertThat(kortti.saldo(),is(1100));
         assertThat(kassa.kassassaRahaa(),is(100000+100));
     }
     @Test
     public void kortilleEiVoiLadataNegatiivistaSummaa(){
         kassa.lataaRahaaKortille(kortti,-10);
+        assertThat(kortti.saldo(),is(1000));
         assertThat(kassa.kassassaRahaa(),is(100000));
     }
 }
