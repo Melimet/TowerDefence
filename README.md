@@ -22,6 +22,8 @@ Tower Defence is a classic tower defence game. The point of the game is to preve
 
 ### Viikko 3
 [Monopoli](https://github.com/Melimet/TowerDefence/blob/master/laskarit/viikko3/Ohte_vko3_luokkakaavio.png) Tehtävät 1 ja 2 samassa
+
 [Machine](https://github.com/Melimet/TowerDefence/blob/master/laskarit/viikko3/SekvenssiKaavio.png)
+
 [HSL](https://github.com/Melimet/TowerDefence/blob/master/laskarit/viikko3/Sekvenssikaavio2.png)
 
