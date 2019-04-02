@@ -7,23 +7,10 @@ Tower Defence is a classic tower defence game. The point of the game is to preve
 
 [Timesheet](https://github.com/Melimet/TowerDefence/blob/master/documentation/Timesheet.md)
 
-## Viikkotehtävät
-**DISCLAIMER**: *The weekly exercises are in finnish since they aren't a part of the software project.*
-### Viikko 1
-*Tässä on esimerkki kursivoidusta tekstistä.*
-**Tässä on esimerkki lihavoidusta tekstistä.**
+### Commands for terminal that may or may not work
 
-[Gitlog](https://github.com/Melimet/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+Run unit tests with `mvn test`
 
-[Komentorivi](https://github.com/Melimet/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+Generate jacoco report with `mvn jacoco:report`
 
-### Viikko 2
-[Testikattavuus](https://raw.githubusercontent.com/Melimet/TowerDefence/master/laskarit/viikko2/testikattavuus.png)
-
-### Viikko 3
-[Monopoli](https://github.com/Melimet/TowerDefence/blob/master/laskarit/viikko3/Ohte_vko3_luokkakaavio.png) Tehtävät 1 ja 2 samassa
-
-[Machine](https://github.com/Melimet/TowerDefence/blob/master/laskarit/viikko3/SekvenssiKaavio.png)
-
-[HSL](https://github.com/Melimet/TowerDefence/blob/master/laskarit/viikko3/Sekvenssikaavio2.png)
 
