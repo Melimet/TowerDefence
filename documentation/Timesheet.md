@@ -4,4 +4,7 @@
 | :----:|:-----| :-----|
 | 19.3. | 2 | Software Requirements Specification|
 | 2.4. | 4 | Struggling with javafx and tests |
-| total | 6 | |
+| 9.4. | 2 | Tests and jacoco |
+| 9.4. | 3 | More stuff to domain |
+| 9.4 | 1 | Documentation |
+| total | 12 | |
