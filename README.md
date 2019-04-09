@@ -11,7 +11,6 @@ Tower Defence is a classic tower defence game. The point of the game is to preve
 
 Run unit tests with `mvn test`
 
-Jacoco didnt work with only `mvn jacoco:report' so I found this workaround`:
-Generate jacoco report with `mvn clean org.jacoco:jacoco-maven-plugin:0.8.3:prepare-agent install org.jacoco:jacoco-maven-plugin:0.8.3:report`
+Generate jacoco report with  `mvn jacoco:report`
 
 Generate checkstyle report with `mvn jxr:jxr checkstyle:checkstyle`
