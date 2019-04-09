@@ -45,7 +45,6 @@ public class StartUi extends Application{
             //TODO: Call for game method and start the game
             Game game = new Game(mapNameTxt.getText(), Integer.parseInt(invaderHpTxt.getText()));
 
-            System.out.println("It works!");
         });
 
         startMenu.add(button,1,10);

@@ -13,6 +13,12 @@ public class Game {
         this.gold=50;
     }
 
+
+
+    private void nextWave(){
+
+    }
+
     public int getGold(){
         return this.gold;
     }
