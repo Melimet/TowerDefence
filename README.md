@@ -7,10 +7,12 @@ Tower Defence is a classic tower defence game. The point of the game is to preve
 
 [Timesheet](https://github.com/Melimet/TowerDefence/blob/master/documentation/Timesheet.md)
 
-### Commands for terminal that may or may not work
+### Commands for terminal
 
 Run unit tests with `mvn test`
 
-Generate jacoco report with `mvn jacoco:report`
+Generate jacoco report with `mvn clean org.jacoco:jacoco-maven-plugin:0.8.3:prepare-agent install org.jacoco:jacoco-maven-plugin:0.8.3:report`
+
+Jacoco didnt work with only 'mvn jacoco:report' so I found this workaround.
 
 
