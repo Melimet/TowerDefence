@@ -5,6 +5,7 @@ public class Game {
     private int hpPct;
     private int wave;
     private int gold;
+    private Map map;
 
     public Game(String mapName, int hpPct){
         this.mapName=mapName;
