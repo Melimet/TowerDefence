@@ -8,6 +8,9 @@ Tower Defence is a classic tower defence game. The point of the game is to preve
 
 [Timesheet](https://github.com/Melimet/TowerDefence/blob/master/documentation/Timesheet.md)
 
+### Releases
+  [Week 5 release](https://github.com/Melimet/TowerDefence/releases/tag/week5)
+
 ### Commands for terminal
 
 Run unit tests with `mvn test`
