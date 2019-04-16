@@ -12,10 +12,10 @@ public class Game {
         this.hpPct = hpPct;
         this.wave = 0;
         this.gold = 50;
-        this.map= new Map();
+        this.map = new Map();
     }
 
-    private void createMap(){
+    private void createMap() {
         Map map = new Map();
     }
 
@@ -30,7 +30,8 @@ public class Game {
     public int getWave() {
         return this.wave;
     }
-    public int[][] getMapRoute(){
+
+    public int[][] getMapRoute() {
         return map.getMapRoute();
     }
 

@@ -14,6 +14,4 @@ public class Wave {
         this.endRoundBonusGold = endRoundBonusGold;
 
     }
-
-
 }

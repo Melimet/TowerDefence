@@ -65,18 +65,17 @@ public class StartUi extends Application {
 
         graphicsContext.clearRect(0, 0, 650, 650);
         int[][] mapRoute = game.getMapRoute();
-        for (int i = 0; i < mapRoute.length; i++){
-            for (int j = 0; j < mapRoute[0].length; j++){
-                if(mapRoute[i][j]==0){
+        for (int i = 0; i < mapRoute.length; i++) {
+            for (int j = 0; j < mapRoute[0].length; j++) {
+                if (mapRoute[i][j] == 0) {
                     graphicsContext.setFill(Color.GREEN);
-                    graphicsContext.fillRect(j*92,i*92,92,92);
-                }
-                else if(mapRoute[i][j]==1){
+                    graphicsContext.fillRect(j * 92, i * 92, 92, 92);
+                } else if (mapRoute[i][j] == 1) {
                     graphicsContext.setFill(Color.BEIGE);
-                    graphicsContext.fillRect(j*92,i*92,92,92);
-                }else{
+                    graphicsContext.fillRect(j * 92, i * 92, 92, 92);
+                } else {
                     graphicsContext.setFill(Color.RED);
-                    graphicsContext.fillRect(j*92,i*92,92,92);
+                    graphicsContext.fillRect(j * 92, i * 92, 92, 92);
                 }
             }
         }
