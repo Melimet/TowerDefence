@@ -7,11 +7,11 @@ public class Wave {
     private ArrayList<Invader> invaders;
     private int endRoundBonusGold;
 
-    public Wave(int index, ArrayList<Invader> invaders, int endRoundBonusGold){
+    public Wave(int index, ArrayList<Invader> invaders, int endRoundBonusGold) {
 
-        this.index=index;
-        this.invaders=invaders;
-        this.endRoundBonusGold=endRoundBonusGold;
+        this.index = index;
+        this.invaders = invaders;
+        this.endRoundBonusGold = endRoundBonusGold;
 
     }
 

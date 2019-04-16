@@ -7,15 +7,6 @@ public class Tower {
     private double attackRange;
     private int attackDamage;
     private double x; //Coordinates for the location where it was built
-
-    public double getY() {
-        return y;
-    }
-
-    public double getX() {
-        return x;
-    }
-
     private double y;
 
     public Tower(String name, int costToBuild, int attackSpeed, double attackRange, int attackDamage, double x, double y) {
@@ -46,9 +37,18 @@ public class Tower {
     public void attackInvader(Invader invader) {
         //If invader dies it returns a value that is higher than 0
         int possibleBounty = invader.takeDamage(this.attackDamage);
-        if(possibleBounty>0){
+        if (possibleBounty > 0) {
             //TODO Remove invader from ArrayList
         }
         //TODO Create cooldown after attacking so turret wont attack everything on each turn
     }
+
+    public double getY() {
+        return y;
+    }
+
+    public double getX() {
+        return x;
+    }
+
 }
