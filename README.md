@@ -15,3 +15,7 @@ Run unit tests with `mvn test`
 Generate jacoco report with  `mvn jacoco:report`
 
 Generate checkstyle report with `mvn jxr:jxr checkstyle:checkstyle`
+
+Generate jar using `mvn package`
+
+The jar file can be run by typing in `java -jar TowerDefence-1.0-SNAPSHOT.jar` while inside target folder
