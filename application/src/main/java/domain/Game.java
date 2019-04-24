@@ -7,16 +7,21 @@ public class Game {
     private int gold;
     private Map map;
 
-    public Game(String mapName, int hpPct) {
-        this.mapName = mapName;
+    public Game(String mapFileName, int hpPct) {
         this.hpPct = hpPct;
         this.wave = 0;
         this.gold = 50;
-        this.map = new Map();
+        this.map = new Map(mapFileName);
+        this.mapName = this.map.getName();
     }
 
-    private void createMap() {
-        Map map = new Map();
+
+    private void findPathThroughMap(){
+        int[][] mapCopy = getMapRoute();
+        for (int i = 0; i < mapCopy.length; i++){
+            for (int j = 0; j < mapCopy[0].length; j++){
+            }
+        }
     }
 
     private void nextWave() {

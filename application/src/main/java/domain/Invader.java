@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.ArrayList;
+
 public class Invader {
     private int hp;
     private int movementSpeed;

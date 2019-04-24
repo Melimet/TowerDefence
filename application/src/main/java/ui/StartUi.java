@@ -31,9 +31,9 @@ public class StartUi extends Application {
         Scene startScene = new Scene(startMenu);
 
 
-        Label mapName = new Label("Map");
+        Label mapName = new Label("File name for map");
         startMenu.add(mapName, 0, 0);
-        TextField mapNameTxt = new TextField("Hello_World2");
+        TextField mapNameTxt = new TextField("hello_world2.txt");
         startMenu.add(mapNameTxt, 1, 0);
 
         Label invaderHp = new Label("Invader hp %");
@@ -67,13 +67,16 @@ public class StartUi extends Application {
         int[][] mapRoute = game.getMapRoute();
         for (int i = 0; i < mapRoute.length; i++) {
             for (int j = 0; j < mapRoute[0].length; j++) {
+                //Grass
                 if (mapRoute[i][j] == 0) {
                     graphicsContext.setFill(Color.GREEN);
                     graphicsContext.fillRect(j * 92, i * 92, 92, 92);
+                    //Road
                 } else if (mapRoute[i][j] == 1) {
                     graphicsContext.setFill(Color.BEIGE);
                     graphicsContext.fillRect(j * 92, i * 92, 92, 92);
-                } else {
+                    //Goal
+                } else if (mapRoute[i][j] == 2) {
                     graphicsContext.setFill(Color.RED);
                     graphicsContext.fillRect(j * 92, i * 92, 92, 92);
                 }

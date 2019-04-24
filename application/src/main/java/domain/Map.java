@@ -1,41 +1,50 @@
 package domain;
 
 import java.util.ArrayList;
+import java.io.File;
+import java.util.Scanner;
 
 public class Map {
     private String name;
     private ArrayList<Wave> waves;
     private int[][] mapRoute;
 
-    public Map() {
-        this.name = "hello_world2";
+    public Map(String filename) {
         this.mapRoute = new int[7][7];
-        initializeMap();
+        initializeMap(filename);
     }
 
-    private void initializeMap() {
-        //TODO change this from being hardcoded to something less stupid
-        this.mapRoute[0][0] = 1;
-        this.mapRoute[0][1] = 1;
-        this.mapRoute[1][1] = 1;
-        this.mapRoute[1][2] = 1;
-        this.mapRoute[1][3] = 1;
-        this.mapRoute[1][4] = 1;
-        this.mapRoute[1][5] = 1;
-        this.mapRoute[2][5] = 1;
-        this.mapRoute[3][5] = 1;
-        this.mapRoute[4][5] = 1;
-        this.mapRoute[4][4] = 1;
-        this.mapRoute[4][3] = 1;
-        this.mapRoute[3][3] = 1;
-        this.mapRoute[3][2] = 1;
-        this.mapRoute[3][1] = 1;
-        this.mapRoute[4][1] = 1;
-        this.mapRoute[5][1] = 1;
-        for (int i = 1; i < 6; i++) {
-            this.mapRoute[6][i] = 1;
+    private void initializeMap(String filename) {
+
+        ArrayList<String> fileContents = new ArrayList<>();
+
+        try(Scanner scanner = new Scanner(new File(filename))){
+            while(scanner.hasNextLine()){
+                String row = scanner.nextLine();
+                fileContents.add(row);
+            }
+
+            this.name = fileContents.get(0);
+
+            for(int i = 1; i < fileContents.size(); i++){
+
+                String[] coordinates = fileContents.get(i).split(",");
+                int x = Integer.parseInt(coordinates[0]);
+                int y = Integer.parseInt(coordinates[1]);
+                //If true, it is the end of the route
+                if (i == fileContents.size()-1){
+                    this.mapRoute[x][y]=2;
+                }else { //Normal road
+                    this.mapRoute[x][y]=1;
+                }
+            }
+
+        }catch (Exception e){
+            System.out.println(e);
         }
-        this.mapRoute[6][6] = 2;
+    }
+    public String getName(){
+        return this.name;
     }
 
     public int[][] getMapRoute() {
