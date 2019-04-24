@@ -1,7 +1,8 @@
 package domain;
 
+import java.util.ArrayList;
+
 public class Game {
-    private String mapName;
     private int hpPct;
     private int wave;
     private int gold;
@@ -12,17 +13,8 @@ public class Game {
         this.wave = 0;
         this.gold = 50;
         this.map = new Map(mapFileName);
-        this.mapName = this.map.getName();
     }
 
-
-    private void findPathThroughMap(){
-        int[][] mapCopy = getMapRoute();
-        for (int i = 0; i < mapCopy.length; i++){
-            for (int j = 0; j < mapCopy[0].length; j++){
-            }
-        }
-    }
 
     private void nextWave() {
 
@@ -37,7 +29,14 @@ public class Game {
     }
 
     public int[][] getMapRoute() {
-        return map.getMapRoute();
+        return this.map.getMapRoute();
+    }
+    public String getMapName(){
+        return this.map.getName();
+    }
+
+    public ArrayList<int[]> getPathThroughMap(){
+        return this.map.getPathThroughMap();
     }
 
 
