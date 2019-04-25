@@ -19,12 +19,12 @@ public class Game {
         this.wave = 0;
         this.gold = 50;
         this.hitPoints = 20;
-        towers = new ArrayList<>();
+        this.towers = new ArrayList<>();
         this.map = new Map(mapFileName);
         this.towerDao = new TowerDao();
     }
 
-    public boolean buildTurret(int typeId) {
+    public boolean buildTurret(int typeId, double x, double y) {
         return true;
     }
 

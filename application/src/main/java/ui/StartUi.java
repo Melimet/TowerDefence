@@ -1,5 +1,7 @@
 package ui;
 
+import javafx.animation.Animation;
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -11,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.animation.*;
 
 import domain.Game;
 
@@ -21,6 +24,8 @@ public class StartUi extends Application {
     private BorderPane borderPane = new BorderPane(mapCanvas);
     private Scene gameScene = new Scene(borderPane);
     private Game game;
+    private int selectedTurretId;
+
 
     @Override
     public void start(Stage window) {
@@ -39,14 +44,14 @@ public class StartUi extends Application {
         TextField invaderHpTxt = new TextField("100");
         startMenu.add(invaderHpTxt, 1, 1);
 
-        Button button = new Button("Start game");
-        button.setOnAction((event) -> {
+        Button startGameButton = new Button("Start game");
+        startGameButton.setOnAction((event) -> {
 
             startGame(window, mapNameTxt.getText(), Integer.parseInt(invaderHpTxt.getText()));
 
         });
 
-        startMenu.add(button, 1, 10);
+        startMenu.add(startGameButton, 1, 10);
 
         startMenu.setVgap(5);
         startMenu.setPadding(new Insets(10, 20, 20, 20));
@@ -58,16 +63,42 @@ public class StartUi extends Application {
     }
 
     public void startGame(Stage window, String mapName, Integer hpPct) {
-        Button buildTower1 = new Button("Build normal tower");
+
+        Button buildTower1 = new Button("Build turret id 0");
+        buildTower1.setOnAction(event -> {
+            this.selectedTurretId = 0;
+        });
+        Button buildTower2 = new Button("Build turret id 1");
+        buildTower2.setOnAction(event -> {
+            this.selectedTurretId = 1;
+        });
 
         HBox hbox = new HBox();
+        hbox.setPadding(new Insets(10, 20, 20, 20));
         hbox.getChildren().add(buildTower1);
+        hbox.getChildren().add(buildTower2);
         borderPane.setBottom(hbox);
 
         game = new Game(mapName, hpPct);
         window.setScene(gameScene);
-        drawMap(window);
 
+        new AnimationTimer() {
+            long previous = 0;
+
+            @Override
+            public void handle(long now) {
+
+                if (now - previous < 1000000000 / 10) {
+                    return;
+                }
+                gameScene.setOnMouseClicked(event -> {
+                    double xLocation = event.getX();
+                    double yLocation = event.getY();
+                    game.buildTurret(selectedTurretId, xLocation, yLocation);
+                });
+                drawMap(window);
+            }
+        }.start();
     }
 
     public void drawMap(Stage window) {
@@ -76,6 +107,7 @@ public class StartUi extends Application {
 
         graphicsContext.fillText("Lives left: " + Integer.toString(game.getCurrentHitPoints()), 10, 660);
         graphicsContext.fillText("Gold: " + Integer.toString(game.getGold()), 120, 660);
+        graphicsContext.fillText("Currently selected turret id: " + Integer.toString(this.selectedTurretId), 200, 660);
 
         int[][] mapRoute = game.getMapRoute();
         for (int i = 0; i < mapRoute.length; i++) {
