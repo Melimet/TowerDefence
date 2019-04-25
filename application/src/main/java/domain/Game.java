@@ -34,7 +34,7 @@ public class Game {
     }
 
     /**
-     * Building of towers is done here. It checks if building a tower is even possible and then proceeds as planned.
+     * Building of towers is done here. It checks if building a tower is even possible and if true it adds the tower to towers ArrayList.
      *
      * @param typeId Different towers have different id's in the database so this makes getting the right tower stats possible
      * @param x      x coordinate for where the turret is going to be build
@@ -47,7 +47,7 @@ public class Game {
         tower.convertXY(x, y);
 
         if (tower.getCostToBuild() <= this.gold && towerCanBeBuiltThere(tower)) {
-            this.gold -= tower.getCostToBuild();
+            reduceGold(tower.getCostToBuild());
             this.towers.add(tower);
 
         } else {
@@ -56,7 +56,12 @@ public class Game {
         }
     }
 
-    private boolean towerCanBeBuiltThere(Tower tower) {
+    /**
+     * Checks if there are any towers already built on the spot in question and then checks if the tile is grass.
+     * @param tower Tower to be examinated
+     * @return Returns true if a tower can be built in the tower's coordinates.
+     */
+    public boolean towerCanBeBuiltThere(Tower tower) {
 
         for (Tower index : this.towers) {
             if (tower.equals(index)) {
@@ -74,6 +79,10 @@ public class Game {
 
     private void nextWave() {
         //TODO: this thing
+    }
+
+    public void reduceGold(int amount){
+        this.gold-=amount;
     }
 
     public int getGold() {

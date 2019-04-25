@@ -42,4 +42,13 @@ public class TowerTest {
         //assertThat(this.tower.attackInvader(invader),is(0));
         //TODO Update this when attackInvader method progresses
     }
+    @Test
+    public void convertingXAndYWorksAsIntended(){
+        this.tower.convertXY(92,92);
+        assertThat(this.tower.getX(),is(1.0));
+        assertThat(this.tower.getY(),is(1.0));
+        assertThat(this.tower.getPixelX(),is(92.0));
+        assertThat(this.tower.getPixelY(),is(137.0));
+
+    }
 }
