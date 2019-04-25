@@ -8,11 +8,11 @@
 
 The game is going to consist of atleast two different windows: one is for the configuration of settings(for example selecting the level to play, changing % of invader hit points and starting the game) and a second one for the actual game. A third window could be for high scores, but it might be cut out if the project proves to be too large. UI is going to be made using **JavaFX**. *The image below illustrates this.*
 
-<img src="https://raw.githubusercontent.com/Melimet/TowerDefence/master/documentation/UIFirstDraft.png" width="750">
+<img src="https://raw.githubusercontent.com/Melimet/TowerDefence/master/documentation/pictures/UIFirstDraft.png" width="750">
 
 *The image below is an artist's illustration of what the game window might look like.*
 
-<img src="https://raw.githubusercontent.com/Melimet/TowerDefence/master/documentation/ConceptPicture_TowerDefence.png" width="750">
+<img src="https://raw.githubusercontent.com/Melimet/TowerDefence/master/documentation/pictures/ConceptPicture_TowerDefence.png" width="750">
 
 ## Functionalities provided by a basic version
 ### Configuration window 
