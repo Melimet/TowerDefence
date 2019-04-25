@@ -2,13 +2,11 @@ package ui;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -18,9 +16,9 @@ import domain.Game;
 
 public class StartUi extends Application {
 
-    private Canvas canvas = new Canvas(650, 650);
-    private GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
-    private BorderPane borderPane = new BorderPane(canvas);
+    private Canvas mapCanvas = new Canvas(644, 670);
+    private GraphicsContext graphicsContext = mapCanvas.getGraphicsContext2D();
+    private BorderPane borderPane = new BorderPane(mapCanvas);
     private Scene gameScene = new Scene(borderPane);
     private Game game;
 
@@ -44,10 +42,7 @@ public class StartUi extends Application {
         Button button = new Button("Start game");
         button.setOnAction((event) -> {
 
-            //TODO: Call for game method and start the game
-            game = new Game(mapNameTxt.getText(), Integer.parseInt(invaderHpTxt.getText()));
-            window.setScene(gameScene);
-            drawMap();
+            startGame(window, mapNameTxt.getText(), Integer.parseInt(invaderHpTxt.getText()));
 
         });
 
@@ -56,14 +51,32 @@ public class StartUi extends Application {
         startMenu.setVgap(5);
         startMenu.setPadding(new Insets(10, 20, 20, 20));
 
+        window.setTitle("Tower Defence");
         window.setScene(startScene);
         window.show();
 
     }
 
-    public void drawMap() {
+    public void startGame(Stage window, String mapName, Integer hpPct) {
+        Button buildTower1 = new Button("Build normal tower");
 
-        graphicsContext.clearRect(0, 0, 650, 650);
+        HBox hbox = new HBox();
+        hbox.getChildren().add(buildTower1);
+        borderPane.setBottom(hbox);
+
+        game = new Game(mapName, hpPct);
+        window.setScene(gameScene);
+        drawMap(window);
+
+    }
+
+    public void drawMap(Stage window) {
+
+        graphicsContext.clearRect(0, 0, 700, 700);
+
+        graphicsContext.fillText("Lives left: " + Integer.toString(game.getCurrentHitPoints()), 10, 660);
+        graphicsContext.fillText("Gold: " + Integer.toString(game.getGold()), 120, 660);
+
         int[][] mapRoute = game.getMapRoute();
         for (int i = 0; i < mapRoute.length; i++) {
             for (int j = 0; j < mapRoute[0].length; j++) {

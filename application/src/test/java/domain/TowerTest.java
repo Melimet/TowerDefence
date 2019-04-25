@@ -10,11 +10,13 @@ public class TowerTest {
 
     private Tower tower;
     private Invader invader;
+    private Map map;
 
     @Before
     public void setUp(){
+        this.map = new Map("hello_world2.txt");
         this.tower = new Tower("A",3,1,5.0,1,5,2);
-        this.invader = new Invader(3,2,3,1,5);
+        this.invader = new Invader(3,2,3,1,5, this.map.getPathThroughMap());
     }
 
     @Test

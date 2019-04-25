@@ -10,3 +10,6 @@
 log/
 target/
 /laskarit/viikko2/Unicafe/target
+
+# DB
+td.db

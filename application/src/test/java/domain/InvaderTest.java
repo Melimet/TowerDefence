@@ -9,10 +9,12 @@ import static org.junit.Assert.*;
 public class InvaderTest {
 
     private Invader invader;
+    private Map map;
 
     @Before
     public void setUp(){
-        this.invader = new Invader(3,2,2,1,5);
+        this.map = new Map("hello_world2.txt");
+        this.invader = new Invader(3,2,2,1,5, this.map.getPathThroughMap());
     }
 
     @Test
