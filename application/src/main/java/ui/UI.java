@@ -119,7 +119,7 @@ public class UI extends Application {
     public void drawMap(Stage window) {
 
         graphicsContext.clearRect(0, 0, 700, 700);
-
+        graphicsContext.setFill(Color.BLACK);
         graphicsContext.fillText("Lives left: " + Integer.toString(game.getCurrentHitPoints()), 10, 660);
         graphicsContext.fillText("Gold: " + Integer.toString(game.getGold()), 120, 660);
         graphicsContext.fillText("Currently selected turret id: " + Integer.toString(this.selectedTurretId), 200, 660);
@@ -143,6 +143,7 @@ public class UI extends Application {
             }
         }
         for (Tower tower : game.getTowers()) {
+            graphicsContext.setFill(Color.PINK);
             graphicsContext.fillText("TOWER HERE", tower.getPixelX(), tower.getPixelY());
         }
     }
