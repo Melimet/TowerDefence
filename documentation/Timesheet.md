@@ -10,4 +10,8 @@
 | 12.4 | 1 | Small changes to domain|
 | 16.4 | 4 | Updates to domain and UI|
 | 16.4 | 1 | Documentation |
-| total | 18 | |
+| 24.4 | 4 | Updates to domain and UI |
+| 25.4 | 9 | Created database, major updates to ui and domain|
+| 25.4 | 1 | Keeping tests up to date |
+| 25.4 | 2 | Javadoc and other documentation |
+| total | 34 | |
