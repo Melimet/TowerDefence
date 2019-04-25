@@ -1,5 +1,6 @@
 package ui;
 
+import domain.Tower;
 import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -16,6 +17,8 @@ import javafx.stage.Stage;
 import javafx.animation.*;
 
 import domain.Game;
+
+import java.util.ArrayList;
 
 public class StartUi extends Application {
 
@@ -94,7 +97,7 @@ public class StartUi extends Application {
                 gameScene.setOnMouseClicked(event -> {
                     double xLocation = event.getX();
                     double yLocation = event.getY();
-                    game.buildTurret(selectedTurretId, xLocation, yLocation);
+                    game.buildTower(selectedTurretId, xLocation, yLocation);
                 });
                 drawMap(window);
             }
@@ -126,6 +129,9 @@ public class StartUi extends Application {
                     graphicsContext.fillRect(j * 92, i * 92, 92, 92);
                 }
             }
+        }
+        for(Tower tower: game.getTowers()){
+            graphicsContext.fillText("TOWER HERE", tower.getPixelX(),tower.getPixelY());
         }
     }
 

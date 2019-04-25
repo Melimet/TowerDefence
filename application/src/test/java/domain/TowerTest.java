@@ -15,7 +15,7 @@ public class TowerTest {
     @Before
     public void setUp(){
         this.map = new Map("hello_world2.txt");
-        this.tower = new Tower("A",3,1,5.0,1,5,2);
+        this.tower = new Tower(0,3,1,5.0,1,5,2);
         this.invader = new Invader(3,2,3,1,5, this.map.getPathThroughMap());
     }
 
@@ -34,7 +34,7 @@ public class TowerTest {
     }
     @Test
     public void towerDoesntAttackIfNotInRange(){
-        Tower tower2 = new Tower("B",3,1,1.0,1,5,2);
+        Tower tower2 = new Tower(1,3,1,1.0,1,5,2);
         assertThat(tower2.isInAttackRange(invader),is(false));
     }
     @Test

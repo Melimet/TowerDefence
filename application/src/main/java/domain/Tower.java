@@ -1,15 +1,19 @@
 package domain;
 
+import java.util.Objects;
+
 public class Tower {
-    private String name;
+    private int name;
     private int costToBuild;
     private int attackSpeed;
     private double attackRange;
     private int attackDamage;
     private double x; //Coordinates for the location where it was built
     private double y;
+    private double pixelX;
+    private double pixelY;
 
-    public Tower(String name, int costToBuild, int attackSpeed, double attackRange, int attackDamage, double x, double y) {
+    public Tower(int name, int costToBuild, int attackSpeed, double attackRange, int attackDamage, double x, double y) {
         this.name = name;
         this.costToBuild = costToBuild;
         this.attackSpeed = attackSpeed;
@@ -17,6 +21,7 @@ public class Tower {
         this.attackDamage = attackDamage;
         this.x = x;
         this.y = y;
+
     }
 
     public boolean isInAttackRange(Invader invader) {
@@ -44,11 +49,45 @@ public class Tower {
     }
 
     public double getY() {
-        return y;
+        return this.y;
     }
 
     public double getX() {
-        return x;
+        return this.x;
     }
 
+    public double getPixelX() {
+        return this.pixelX;
+    }
+
+    public double getPixelY() {
+        return this.pixelY;
+    }
+
+    public void setXY(double x, double y) {
+
+        this.x = Math.round(x / 92);
+        this.y = Math.round(y / 92);
+
+        this.pixelX = this.x * 92;
+        this.pixelY = this.y * 92 + 45;
+    }
+
+    public int getCostToBuild() {
+        return this.costToBuild;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tower tower = (Tower) o;
+        return Double.compare(tower.x, x) == 0 &&
+                Double.compare(tower.y, y) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
+    }
 }
