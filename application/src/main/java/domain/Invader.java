@@ -16,7 +16,7 @@ public class Invader {
         this.bounty = bounty;
         this.x = startX;
         this.y = startY;
-        this.path=path;
+        this.path = path;
     }
 
     public int takeDamage(int amount) {

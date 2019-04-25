@@ -17,7 +17,7 @@ public class GameTest{
 
     @Test
     public void getGold() {
-        assertThat(this.game.getGold(),is(50));
+        assertThat(this.game.getGold(),is(50000));
     }
 
     @Test

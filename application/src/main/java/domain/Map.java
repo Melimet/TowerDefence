@@ -4,18 +4,31 @@ import java.util.ArrayList;
 import java.io.File;
 import java.util.Scanner;
 
+/**
+ * Map class holds information about the map and about the path that the invaders will go through.
+ */
 public class Map {
     private String name;
     private ArrayList<Wave> waves;
     private int[][] mapRoute;
     private ArrayList<int[]> pathThroughMap;
 
+    /**
+     * Constructor for Map. Initializes a 7x7 grid.
+     *
+     * @param filename Filename given by user in the configuration menu.
+     */
     public Map(String filename) {
         this.mapRoute = new int[7][7];
         this.pathThroughMap = new ArrayList<>();
         initializeMap(filename);
     }
 
+    /**
+     * Initializes the map for the game. This is done by reading the .txt file.
+     *
+     * @param filename Filename given by user in the configuration menu.
+     */
     private void initializeMap(String filename) {
 
         ArrayList<String> fileContents = new ArrayList<>();

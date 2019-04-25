@@ -5,6 +5,9 @@ import domain.Tower;
 import javax.xml.transform.Result;
 import java.sql.*;
 
+/**
+ * This class is used to access the database for information about towers.
+ */
 public class TowerDao {
 
     private final String url;
@@ -25,6 +28,9 @@ public class TowerDao {
         return conn;
     }
 
+    /**
+     * Initializes the db if it doesnt already exist
+     */
     private void initDatabase() {
 
         String sql = "CREATE TABLE IF NOT EXISTS Towers ("
@@ -44,6 +50,9 @@ public class TowerDao {
         addTowerTypesIfDbIsEmpty();
     }
 
+    /**
+     * Creates two tower types if Tower table is completely empty
+     */
     private void addTowerTypesIfDbIsEmpty() {
 
         String sql = "SELECT * FROM Towers;";
@@ -75,6 +84,12 @@ public class TowerDao {
         }
     }
 
+    /**
+     * Searches the db for a Tower with a specific PrimaryKey. This query should never fail.
+     *
+     * @param id Primarykey for a tower.
+     * @return Returns a Tower object for use.
+     */
     public Tower getTowerById(int id) {
 
         String sql = "SELECT costToBuild, attackSpeed, attackRange, attackDamage FROM Towers WHERE "

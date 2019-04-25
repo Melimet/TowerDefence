@@ -1,7 +1,6 @@
 package ui;
 
 import domain.Tower;
-import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -14,13 +13,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.animation.*;
 
 import domain.Game;
 
-import java.util.ArrayList;
-
-public class StartUi extends Application {
+/**
+ * User interface class. Holds the scene for configuring settings and playing the game.
+ */
+public class UI extends Application {
 
     private Canvas mapCanvas = new Canvas(644, 670);
     private GraphicsContext graphicsContext = mapCanvas.getGraphicsContext2D();
@@ -29,7 +28,10 @@ public class StartUi extends Application {
     private Game game;
     private int selectedTurretId;
 
-
+    /**
+     * Configuration scene is in this method.
+     * @param window Stage in use.
+     */
     @Override
     public void start(Stage window) {
 
@@ -65,7 +67,13 @@ public class StartUi extends Application {
 
     }
 
-    public void startGame(Stage window, String mapName, Integer hpPct) {
+    /**
+     * Actual game is in this method.
+     * @param window Stage in use.
+     * @param mapFileName File name for the map that is going to be played.
+     * @param hpPct This value changes the % of invader hitpoints. With this the difficulty of the game can be altered. Default value is 100.
+     */
+    public void startGame(Stage window, String mapFileName, Integer hpPct) {
 
         Button buildTower1 = new Button("Build turret id 0");
         buildTower1.setOnAction(event -> {
@@ -82,7 +90,7 @@ public class StartUi extends Application {
         hbox.getChildren().add(buildTower2);
         borderPane.setBottom(hbox);
 
-        game = new Game(mapName, hpPct);
+        game = new Game(mapFileName, hpPct);
         window.setScene(gameScene);
 
         new AnimationTimer() {
@@ -104,6 +112,10 @@ public class StartUi extends Application {
         }.start();
     }
 
+    /**
+     * Map, towers and invaders are drawn here.
+     * @param window Stage in use.
+     */
     public void drawMap(Stage window) {
 
         graphicsContext.clearRect(0, 0, 700, 700);
@@ -130,12 +142,16 @@ public class StartUi extends Application {
                 }
             }
         }
-        for(Tower tower: game.getTowers()){
-            graphicsContext.fillText("TOWER HERE", tower.getPixelX(),tower.getPixelY());
+        for (Tower tower : game.getTowers()) {
+            graphicsContext.fillText("TOWER HERE", tower.getPixelX(), tower.getPixelY());
         }
     }
 
+    /**
+     * Main method. Starts the configuration window.
+     * @param args =)
+     */
     public static void main(String[] args) {
-        launch(StartUi.class);
+        launch(UI.class);
     }
 }
