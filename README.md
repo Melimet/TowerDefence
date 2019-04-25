@@ -10,6 +10,7 @@ Tower Defence is a classic tower defence game. The point of the game is to preve
 
 ### Releases
   [Week 5 release](https://github.com/Melimet/TowerDefence/releases/tag/week5)
+  [Week 6 release](https://github.com/Melimet/TowerDefence/releases/tag/Week6)
 
 ### Commands for terminal
 
@@ -20,3 +21,5 @@ Generate jacoco report with  `mvn jacoco:report`
 Generate checkstyle report with `mvn jxr:jxr checkstyle:checkstyle`
 
 The jar file can be run by typing in `java -jar TowerDefenceWeek5.jar` while inside folder where the jar file is
+
+Generate javadoc with `mvn javadoc:javadoc`
