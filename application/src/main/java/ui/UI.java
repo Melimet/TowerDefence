@@ -10,6 +10,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -27,6 +28,11 @@ public class UI extends Application {
     private Scene gameScene = new Scene(borderPane);
     private Game game;
     private int selectedTurretId;
+
+    //Images for objects
+    private Image tower1 = new Image("Tower1Transparent.png",120,120,false,false);
+    private Image tower2 = new Image("Tower2Transparent.png", 120,120,false,false);
+    private Image invader = new Image("InvaderTransparent.png",120,120,false,false);
 
     /**
      * Configuration scene is in this method.
@@ -144,7 +150,7 @@ public class UI extends Application {
         }
         for (Tower tower : game.getTowers()) {
             graphicsContext.setFill(Color.PINK);
-            graphicsContext.fillText("TOWER HERE", tower.getPixelX(), tower.getPixelY());
+            graphicsContext.drawImage(tower1, tower.getPixelX(), tower.getPixelY()-40);
         }
     }
 
