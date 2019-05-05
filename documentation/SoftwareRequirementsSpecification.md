@@ -2,11 +2,11 @@
 
 ## Purpose of the app
 
-**Tower Defence** is a classic tower defence game. The point of the game is to prevent waves of attacking invaders from reaching the end of the maze. This is done by building towers along the way and trying to eliminate as many attacking invaders as possible. Building towers costs gold and gold is acquired via surviving waves and eliminating invaders. There are multiple kinds of towers and they excel at different things. There are multiple types of invaders. Choosing from a variety of maps/levels may become a possibility.
+**Tower Defence** is a classic tower defence game. The point of the game is to prevent waves of attacking invaders from reaching the end of the maze. This is done by building towers along the way and trying to eliminate as many attacking invaders as possible. Building towers costs gold and gold is acquired via surviving waves and eliminating invaders. There are multiple kinds of towers. There is currently only one types of invaders. The game comes with just one map, but users can create their own maps.
 
 ## First draft of UI
 
-The game is going to consist of atleast two different windows: one is for the configuration of settings(for example selecting the level to play, changing % of invader hit points and starting the game) and a second one for the actual game. A third window could be for high scores, but it might be cut out if the project proves to be too large. UI is going to be made using **JavaFX**. *The image below illustrates this.*
+The game is consists of two different windows: one is for the configuration of settings(for example selecting the level to play, changing % of invader hit points and starting the game) and a second one for the actual game.  UI is made using **JavaFX**. *The image below illustrates this.*
 
 <img src="https://raw.githubusercontent.com/Melimet/TowerDefence/master/documentation/pictures/UIFirstDraft.png" width="750">
 
@@ -32,7 +32,7 @@ The game is going to consist of atleast two different windows: one is for the co
   - Towers attack automatically whenever there is an invader inside their range of fire
 
 - All waves are different and become progressively harder as the game progresses
-  - Different types of enemies have different values in: hit points, bounties (Gold gained from eliminating it), movement speed (Might get cut out if this proves to be too difficult to carry out) and models(Type 1 can be a red square and Type 2 could be a purple triangle)
+  
 
 ## Ideas for further development
 
