@@ -24,4 +24,23 @@ public class Wave {
         this.endRoundBonusGold = endRoundBonusGold;
 
     }
+
+    /**
+     * Method for spawning invaders. Invader is removed from this.invaders so the same invader wont be spawned multiple times.
+     *
+     * @return Returns an invader to be spawned.
+     */
+    public Invader spawnInvader() {
+        if (this.invaders.isEmpty()) {
+            return null;
+        }
+
+        Invader invader = this.invaders.get(0);
+        this.invaders.remove(0);
+        return invader;
+    }
+
+    public int getEndRoundBonusGold() {
+        return endRoundBonusGold;
+    }
 }

@@ -10,13 +10,17 @@ public class Invader {
     private double y;
     private ArrayList<int[]> path;
 
-    public Invader(int hp, int movementSpeed, int bounty, double startX, double startY, ArrayList<int[]> path) {
+    public Invader(int hp, int movementSpeed, int bounty, ArrayList<int[]> path) {
         this.hp = hp;
         this.movementSpeed = movementSpeed;
         this.bounty = bounty;
-        this.x = startX;
-        this.y = startY;
         this.path = path;
+        setStartingCoordinates();
+    }
+
+    private void setStartingCoordinates(){
+        this.x = (double) this.path.get(0)[0];
+        this.y = (double) this.path.get(0)[1];
     }
 
     public int takeDamage(int amount) {

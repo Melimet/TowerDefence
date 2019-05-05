@@ -14,7 +14,7 @@ public class InvaderTest {
     @Before
     public void setUp(){
         this.map = new Map("hello_world2.txt");
-        this.invader = new Invader(3,2,2,1,5, this.map.getPathThroughMap());
+        this.invader = new Invader(3,2,2, this.map.getPathThroughMap());
     }
 
     @Test

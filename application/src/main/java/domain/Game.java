@@ -16,6 +16,7 @@ public class Game {
     private Map map;
     private ArrayList<Tower> towers;
     private TowerDao towerDao;
+    private ArrayList<Wave> waves;
 
     /**
      * Constructor for the game class.
@@ -31,6 +32,8 @@ public class Game {
         this.towers = new ArrayList<>();
         this.map = new Map(mapFileName);
         this.towerDao = new TowerDao();
+        this.waves = new ArrayList<>();
+        createWaves();
     }
 
     /**
@@ -58,6 +61,7 @@ public class Game {
 
     /**
      * Checks if there are any towers already built on the spot in question and then checks if the tile is grass.
+     *
      * @param tower Tower to be examinated
      * @return Returns true if a tower can be built in the tower's coordinates.
      */
@@ -77,12 +81,20 @@ public class Game {
         return true;
     }
 
+    private void createWaves() {
+        ArrayList<Invader> invaders = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            invaders.add(new Invader(100, 1, 30, getPathThroughMap()));
+            this.waves.add(new Wave(i, invaders, (i + 1) * 10));
+        }
+    }
+
     private void nextWave() {
         //TODO: this thing
     }
 
-    public void reduceGold(int amount){
-        this.gold-=amount;
+    public void reduceGold(int amount) {
+        this.gold -= amount;
     }
 
     public int getGold() {
