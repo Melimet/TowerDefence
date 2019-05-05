@@ -8,6 +8,8 @@ This repo contains a software project and some other stuff for University of Hel
 
 [User manual](https://github.com/Melimet/TowerDefence/blob/master/documentation/UserManual.md)
 
+[Testing document](https://github.com/Melimet/TowerDefence/blob/master/documentation/TestingDocument.md)
+
 [Timesheet](https://github.com/Melimet/TowerDefence/blob/master/documentation/Timesheet.md)
 
 ### Releases
