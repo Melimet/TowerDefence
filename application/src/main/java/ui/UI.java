@@ -32,12 +32,13 @@ public class UI extends Application {
     private boolean waveIsOn = false;
 
     //Images for objects
-    private Image tower1Image = new Image("Tower1Transparent.png",120,120,false,false);
-    private Image tower2Image = new Image("Tower2Transparent.png", 120,120,false,false);
-    private Image invaderImage = new Image("InvaderTransparent.png",120,120,false,false);
+    private Image tower1Image = new Image("Tower1Transparent.png", 120, 120, false, false);
+    private Image tower2Image = new Image("Tower2Transparent.png", 120, 120, false, false);
+    private Image invaderImage = new Image("InvaderTransparent.png", 120, 120, false, false);
 
     /**
      * Configuration scene is in this method.
+     *
      * @param window Stage in use.
      */
     @Override
@@ -77,9 +78,10 @@ public class UI extends Application {
 
     /**
      * Actual game is in this method.
-     * @param window Stage in use.
+     *
+     * @param window      Stage in use.
      * @param mapFileName File name for the map that is going to be played.
-     * @param hpPct This value changes the % of invader hitpoints. With this the difficulty of the game can be altered. Default value is 100.
+     * @param hpPct       This value changes the % of invader hitpoints. With this the difficulty of the game can be altered. Default value is 100.
      */
     public void startGame(Stage window, String mapFileName, Integer hpPct) {
 
@@ -93,12 +95,12 @@ public class UI extends Application {
         });
 
         Button startNextWave = new Button("Start next wave");
-            startNextWave.setOnAction(event -> {
-                if(!waveIsOn){
-                    game.nextWave();
-                    waveIsOn=true;
-                }
-            });
+        startNextWave.setOnAction(event -> {
+            if (!waveIsOn) {
+                game.nextWave();
+                waveIsOn = true;
+            }
+        });
 
 
         HBox hbox = new HBox();
@@ -133,6 +135,7 @@ public class UI extends Application {
 
     /**
      * Map, towers and invaders are drawn here.
+     *
      * @param window Stage in use.
      */
     public void drawMap(Stage window) {
@@ -163,20 +166,21 @@ public class UI extends Application {
         }
         //draw towers
         for (Tower tower : game.getTowers()) {
-            if(tower.getId()==0){
-                graphicsContext.drawImage(tower1Image, tower.getPixelX(), tower.getPixelY()-40);
-            } else if(tower.getId()==1){
-                graphicsContext.drawImage(tower2Image, tower.getPixelX(), tower.getPixelY()-45);
+            if (tower.getId() == 0) {
+                graphicsContext.drawImage(tower1Image, tower.getPixelX(), tower.getPixelY() - 40);
+            } else if (tower.getId() == 1) {
+                graphicsContext.drawImage(tower2Image, tower.getPixelX(), tower.getPixelY() - 45);
             }
         }
         //draw invaders
-        for (Invader invader : game.getInvadersAlive()){
-            graphicsContext.drawImage(invaderImage, invader.getPixelX(), invader.getPixelY());
+        for (Invader invader : game.getInvadersAlive()) {
+            graphicsContext.drawImage(invaderImage, invader.getPixelX() , invader.getPixelY());
         }
     }
 
     /**
      * Main method. Starts the configuration window.
+     *
      * @param args =)
      */
     public static void main(String[] args) {

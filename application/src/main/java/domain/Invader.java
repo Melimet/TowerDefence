@@ -18,7 +18,7 @@ public class Invader {
         this.movementSpeed = movementSpeed;
         this.bounty = bounty;
         this.path = path;
-        this.currentStepIndex = 1;
+        this.currentStepIndex = 0;
         setStartingCoordinates();
     }
 
@@ -40,32 +40,33 @@ public class Invader {
 
     public void convertXYtoPixelCoordinates() {
 
-        this.pixelX = this.x * 92 - 43;
+        this.pixelX = this.x * 92;
         this.pixelY = this.y * 92;
     }
 
     public void move() {
 
         if (this.x < this.path.get(this.currentStepIndex)[0]) {
-            this.pixelX += 1.0;
-        } else {
+            this.pixelX+= 1.0;
+        } else if (this.x > this.path.get(this.currentStepIndex)[0]){
             this.pixelX -= 1.0;
         }
 
         if (this.y < this.path.get(this.currentStepIndex)[1]) {
             this.pixelY += 1.0;
-        } else {
+        } else if (this.y > this.path.get(this.currentStepIndex)[1]){
             this.pixelY -= 1.0;
         }
         checkIfNextStepHasBeenReached();
     }
 
     public void checkIfNextStepHasBeenReached() {
-        if (Math.round(this.pixelX / 92) != this.path.get(currentStepIndex)[0]
-                && Math.round(this.pixelY / 92) != this.path.get(currentStepIndex)[1]) {
-            this.currentStepIndex++;
+        if (Math.floor(this.pixelX / 92) == this.path.get(currentStepIndex)[0]
+                && Math.floor(this.pixelY / 92) == this.path.get(currentStepIndex)[1]) {
+
             this.x = this.path.get(this.currentStepIndex)[0];
             this.y = this.path.get(this.currentStepIndex)[1];
+            this.currentStepIndex++;
         }
     }
 
