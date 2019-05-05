@@ -14,4 +14,7 @@
 | 25.4 | 9 | Created database, major updates to ui and domain|
 | 25.4 | 1 | Keeping tests up to date |
 | 25.4 | 2 | Javadoc and other documentation |
-| total | 34 | |
+| 5.5 | 8 | Domain & Ui |
+| 5.5 | 1 | Tests |
+| 5.5 | 2 | Documentation |
+| total | 45 | |
