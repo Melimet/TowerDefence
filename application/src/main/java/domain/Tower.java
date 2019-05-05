@@ -125,4 +125,8 @@ public class Tower {
     public int hashCode() {
         return Objects.hash(x, y);
     }
+
+    public int getId(){
+        return this.id;
+    }
 }

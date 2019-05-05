@@ -41,6 +41,9 @@ public class Wave {
     }
 
     public int getEndRoundBonusGold() {
-        return endRoundBonusGold;
+        return this.endRoundBonusGold;
+    }
+    public int getIndex(){
+        return this.index;
     }
 }

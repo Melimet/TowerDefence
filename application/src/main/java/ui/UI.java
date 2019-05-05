@@ -1,5 +1,6 @@
 package ui;
 
+import domain.Invader;
 import domain.Tower;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -28,11 +29,12 @@ public class UI extends Application {
     private Scene gameScene = new Scene(borderPane);
     private Game game;
     private int selectedTurretId;
+    private boolean waveIsOn = false;
 
     //Images for objects
-    private Image tower1 = new Image("Tower1Transparent.png",120,120,false,false);
-    private Image tower2 = new Image("Tower2Transparent.png", 120,120,false,false);
-    private Image invader = new Image("InvaderTransparent.png",120,120,false,false);
+    private Image tower1Image = new Image("Tower1Transparent.png",120,120,false,false);
+    private Image tower2Image = new Image("Tower2Transparent.png", 120,120,false,false);
+    private Image invaderImage = new Image("InvaderTransparent.png",120,120,false,false);
 
     /**
      * Configuration scene is in this method.
@@ -90,10 +92,20 @@ public class UI extends Application {
             this.selectedTurretId = 1;
         });
 
+        Button startNextWave = new Button("Start next wave");
+            startNextWave.setOnAction(event -> {
+                if(!waveIsOn){
+                    game.nextWave();
+                    waveIsOn=true;
+                }
+            });
+
+
         HBox hbox = new HBox();
         hbox.setPadding(new Insets(10, 20, 20, 20));
         hbox.getChildren().add(buildTower1);
         hbox.getChildren().add(buildTower2);
+        hbox.getChildren().add(startNextWave);
         borderPane.setBottom(hbox);
 
         game = new Game(mapFileName, hpPct);
@@ -105,7 +117,7 @@ public class UI extends Application {
             @Override
             public void handle(long now) {
 
-                if (now - previous < 1000000000 / 10) {
+                if (now - previous < 1000000000 / 1) {
                     return;
                 }
                 gameScene.setOnMouseClicked(event -> {
@@ -113,6 +125,7 @@ public class UI extends Application {
                     double yLocation = event.getY();
                     game.buildTower(selectedTurretId, xLocation, yLocation);
                 });
+                game.moveAllInvaders();
                 drawMap(window);
             }
         }.start();
@@ -148,9 +161,17 @@ public class UI extends Application {
                 }
             }
         }
+        //draw towers
         for (Tower tower : game.getTowers()) {
-            graphicsContext.setFill(Color.PINK);
-            graphicsContext.drawImage(tower1, tower.getPixelX(), tower.getPixelY()-40);
+            if(tower.getId()==0){
+                graphicsContext.drawImage(tower1Image, tower.getPixelX(), tower.getPixelY()-40);
+            } else if(tower.getId()==1){
+                graphicsContext.drawImage(tower2Image, tower.getPixelX(), tower.getPixelY()-45);
+            }
+        }
+        //draw invaders
+        for (Invader invader : game.getInvadersAlive()){
+            graphicsContext.drawImage(invaderImage, invader.getPixelX(), invader.getPixelY());
         }
     }
 

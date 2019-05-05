@@ -17,6 +17,7 @@ public class Game {
     private ArrayList<Tower> towers;
     private TowerDao towerDao;
     private ArrayList<Wave> waves;
+    private ArrayList<Invader> invadersAlive;
 
     /**
      * Constructor for the game class.
@@ -32,8 +33,8 @@ public class Game {
         this.towers = new ArrayList<>();
         this.map = new Map(mapFileName);
         this.towerDao = new TowerDao();
-        this.waves = new ArrayList<>();
-        createWaves();
+        this.waves = createWaves();
+        this.invadersAlive = new ArrayList<>();
     }
 
     /**
@@ -81,16 +82,26 @@ public class Game {
         return true;
     }
 
-    private void createWaves() {
+    private ArrayList<Wave> createWaves() {
         ArrayList<Invader> invaders = new ArrayList<>();
+        ArrayList<Wave> waves = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             invaders.add(new Invader(100, 1, 30, getPathThroughMap()));
-            this.waves.add(new Wave(i, invaders, (i + 1) * 10));
+            waves.add(new Wave(i, invaders, (i + 1) * 10));
+        }
+        return waves;
+    }
+    public void moveAllInvaders(){
+        for (Invader invader: this.invadersAlive){
+            invader.move();
         }
     }
 
-    private void nextWave() {
-        //TODO: this thing
+    public void nextWave() {
+        if (this.waves.isEmpty()) {
+            //TODO: Victory
+        }
+        this.invadersAlive.add(this.waves.get(0).spawnInvader());
     }
 
     public void reduceGold(int amount) {
@@ -129,5 +140,8 @@ public class Game {
         return this.map.getPathThroughMap();
     }
 
+    public ArrayList<Invader> getInvadersAlive() {
+        return this.invadersAlive;
+    }
 
 }
