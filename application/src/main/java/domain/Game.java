@@ -55,7 +55,6 @@ public class Game {
             this.towers.add(tower);
 
         } else {
-            //TODO: Tell user that building a tower isn't possible
             System.out.println("Cant build a tower there.");
         }
     }
@@ -63,7 +62,7 @@ public class Game {
     /**
      * Checks if there are any towers already built on the spot in question and then checks if the tile is grass.
      *
-     * @param tower Tower to be examinated
+     * @param tower Tower to be examined
      * @return Returns true if a tower can be built in the tower's coordinates.
      */
     public boolean towerCanBeBuiltThere(Tower tower) {
@@ -82,26 +81,65 @@ public class Game {
         return true;
     }
 
+    /**
+     * Creates waves of invaders
+     * @return Returns ArrayList with waves
+     */
     private ArrayList<Wave> createWaves() {
         ArrayList<Invader> invaders = new ArrayList<>();
         ArrayList<Wave> waves = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            invaders.add(new Invader(100, 1, 30, getPathThroughMap()));
+        for (int i = 0; i < 1000; i++) {
+            invaders.add(new Invader(100, 30, getPathThroughMap()));
             waves.add(new Wave(i, invaders, (i + 1) * 10));
         }
         return waves;
     }
+
+    /**
+     * Moves all invaders
+     */
     public void moveAllInvaders(){
         for (Invader invader: this.invadersAlive){
             invader.move();
         }
     }
 
+    /**
+     * Starts next wave and spawns invaders
+     */
     public void nextWave() {
         if (this.waves.isEmpty()) {
             //TODO: Victory
         }
-        this.invadersAlive.add(this.waves.get(0).spawnInvader());
+        for(int i = 0; i <= this.wave; i++){
+            this.invadersAlive.add(this.waves.get(this.wave).spawnInvader());
+        }
+    }
+
+    /**
+     * Attacks with all towers. Removes an invader if it dies.
+     */
+    public void attackWithAllTowers(){
+        for(Tower tower: this.towers){
+            for(Invader invader: this.invadersAlive){
+                if(tower.isInAttackRange(invader)){
+                    this.gold += tower.attackInvader(invader);
+                    break;
+                }
+            }
+        }
+        ArrayList<Invader> invadersAliveCopy = new ArrayList<>();
+        for(Invader invader: this.invadersAlive){
+            if(invader.getHp() > 0){
+                invadersAliveCopy.add(invader);
+            }
+        }
+        this.invadersAlive=invadersAliveCopy;
+        //round won
+        if(this.invadersAlive.isEmpty()){
+            this.gold+=this.waves.get(this.wave).getEndRoundBonusGold();
+            this.wave++;
+        }
     }
 
     public void reduceGold(int amount) {

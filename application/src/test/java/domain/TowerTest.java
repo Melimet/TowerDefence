@@ -20,7 +20,7 @@ public class TowerTest {
         this.tower = new Tower(0, 3, 1, 5.0, 1, 5, 2);
         ArrayList<int[]> startingCoordinates = new ArrayList<>();
         startingCoordinates.add(new int[]{5, 4});
-        this.invader = new Invader(3, 2, 3, startingCoordinates);
+        this.invader = new Invader(3, 3, startingCoordinates);
     }
 
     @Test

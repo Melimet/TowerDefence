@@ -39,13 +39,16 @@ public class Tower {
     }
 
     /**
-     * Using Pythagoras' theorem to calculate distance between the tower and invader.
+     * Using Pythagoras' theorem to calculate distance between the tower and invader. Also if invader has 0 or less hp method returns false.
      *
      * @param invader The invader who is going to be checked if attacking is possible.
      * @return Returns true if attacking is possible, else false.
      */
     public boolean isInAttackRange(Invader invader) {
 
+        if(invader.getHp() <= 0 ){
+            return false;
+        }
         double distance = Math.sqrt
                 (Math.pow(invader.getX() - this.getX(), 2)
                         + (Math.pow(invader.getY() - this.getY(), 2)));
@@ -58,17 +61,15 @@ public class Tower {
     }
 
     /**
-     * Damages an invader and checks if it died. If an invader dies it returns a value that is higher than 0.
+     * Damages an invader and checks if it died. If an invader es it returns a value that is higher than 0.
      *
      * @param invader Invader who is going to be attacked
      */
-    public void attackInvader(Invader invader) {
+    public Integer attackInvader(Invader invader) {
         //If invader dies it returns a value that is higher than 0
         int possibleBounty = invader.takeDamage(this.attackDamage);
-        if (possibleBounty > 0) {
-            //TODO Remove invader from ArrayList
-        }
-        //TODO Create cooldown after attacking so turret wont attack everything on each turn
+
+        return possibleBounty;
     }
 
     public double getY() {

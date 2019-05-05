@@ -119,7 +119,7 @@ public class UI extends Application {
             @Override
             public void handle(long now) {
 
-                if (now - previous < 1000000000 / 1) {
+                if (now - previous < 1000000000 / 10) {
                     return;
                 }
                 gameScene.setOnMouseClicked(event -> {
@@ -127,8 +127,17 @@ public class UI extends Application {
                     double yLocation = event.getY();
                     game.buildTower(selectedTurretId, xLocation, yLocation);
                 });
-                game.moveAllInvaders();
+
+                if (waveIsOn) {
+                    game.moveAllInvaders();
+                    game.attackWithAllTowers();
+                }
+
                 drawMap(window);
+
+                if (game.getInvadersAlive().isEmpty() && waveIsOn) {
+                    waveIsOn = false;
+                }
             }
         }.start();
     }
@@ -145,7 +154,7 @@ public class UI extends Application {
         graphicsContext.fillText("Lives left: " + Integer.toString(game.getCurrentHitPoints()), 10, 660);
         graphicsContext.fillText("Gold: " + Integer.toString(game.getGold()), 120, 660);
         graphicsContext.fillText("Currently selected turret id: " + Integer.toString(this.selectedTurretId), 200, 660);
-
+        graphicsContext.fillText("Current wave:" + game.getWave(), 400, 660);
         int[][] mapRoute = game.getMapRoute();
         for (int i = 0; i < mapRoute.length; i++) {
             for (int j = 0; j < mapRoute[0].length; j++) {
@@ -174,7 +183,7 @@ public class UI extends Application {
         }
         //draw invaders
         for (Invader invader : game.getInvadersAlive()) {
-            graphicsContext.drawImage(invaderImage, invader.getPixelX() , invader.getPixelY());
+            graphicsContext.drawImage(invaderImage, invader.getPixelX(), invader.getPixelY());
         }
     }
 
