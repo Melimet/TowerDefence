@@ -33,7 +33,7 @@ public class Map {
 
         ArrayList<String> fileContents = new ArrayList<>();
 
-        try (Scanner scanner = new Scanner(new File(filename))) {
+        try (Scanner scanner = new Scanner(new File("src/main/resources/"+filename))) {
             while (scanner.hasNextLine()) {
                 String row = scanner.nextLine();
                 fileContents.add(row);
